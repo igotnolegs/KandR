@@ -11,7 +11,7 @@ main()
       ++nl;
     if (c == '\t')
       ++tab;
-    if (c == '\v')
+    if (c == ' ')
       ++blank;
   printf("%d new lines, %d tabs, %d blank lines.\n", nl, tab, blank);
 }
