@@ -5,9 +5,11 @@ main()
 {
   int c;
   
-  while ((c = getchar()) != EOF)
-    if (c == ' ')
-      ++c;
-      putchar(' ');
-    putchar(c);
+  c = getchar();
+  while (c != EOF) {
+    if (c != ' ') {
+putchar(c);
+    }
+    c = getchar();
+  }
 }
