@@ -1,30 +1,29 @@
 //EXERCISE 1-13
-#include <stdio.h>
 
 /*print a histogram of the length of words in the program's input*/
+
+#include <stdio.h>
+
+#define MAXLENGTH 12 /*max word length*/
 main()
 {
-  int c, nletter, gbar;
-  int nword[nletter];
+  int c, nletter, i;
+  int nword[MAXLENGTH];
   
-  nletter = 0;
+  nletter     =   0;
+  for (i = 0; i <= MAXLENGTH; ++i)
+    nword[i] = 0;
+  
   while ((c = getchar()) != EOF)
       if (c == ' ' || c == '\t' || c == '\n') {
-        ++nword[nletter-1];
+        ++nword[nletter];
         nletter = 0;
       }
-      else
-        nletter ++;
+      else if (nletter <= MAXLENGTH)
+          nletter ++;
+      
   
-  printf("Graph of word length\n");
-  gbar = 0;
-  for (nletter = 0; nletter < 10; ++nletter) {
-      printf("%d:", nletter);
-      while (gbar != nword[nletter]) {
-      printf("=");
-      ++gbar;
-    }
-    printf("\n");
-    gbar = 0;
-  }
+  printf("LENGTH OF WORDS:\n");
+  for (i = 1; i <= MAXLENGTH; ++i)
+    printf("%d: %d\n", i, nword[i]);
 }
